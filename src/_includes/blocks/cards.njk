@@ -1,0 +1,18 @@
+{#- CARDS — a grid of cards. eyebrow, title, text, columns (2,3,4)
+    items[{ image, title, meta, text, link{text,href} }] -#}
+<section class="section bg-{{ block.bg or 'plain' }}"{% if block.id %} id="{{ block.id }}"{% endif %}>
+  <div class="container">
+    {% include "blocks/_head.njk" %}
+    <div class="grid grid-{{ block.columns or 3 }}">
+      {%- for item in block.items %}
+      <article class="card{% if item.image %} card-photo{% endif %}">
+        {% if item.image %}{% photo item.image, "card" %}{% endif %}
+        {% if item.title %}<h3>{{ item.title | mdi | safe }}</h3>{% endif %}
+        {% if item.meta %}<p class="meta">{{ item.meta }}</p>{% endif %}
+        {% if item.text %}{{ item.text | md | safe }}{% endif %}
+        {%- set link = item.link %}{% include "blocks/_link.njk" %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

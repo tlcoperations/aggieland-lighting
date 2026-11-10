@@ -1,0 +1,25 @@
+{#- SPLIT — text on one side, something on the other.
+    eyebrow, title, text, link{text,href}, buttons, image (under the text)
+    side: one of  steps[] | quote{text,by} | image   ·  side_image adds a photo above a quote
+    reverse: true puts the side first -#}
+<section class="section bg-{{ block.bg or 'plain' }}"{% if block.id %} id="{{ block.id }}"{% endif %}>
+  <div class="container grid-2{% if block.reverse %} reverse{% endif %}{% if block.center %} align-center{% endif %}">
+    <div class="split-main">
+      {% include "blocks/_head.njk" %}
+      {%- set link = block.link %}{% include "blocks/_link.njk" %}
+      {%- set buttons = block.buttons %}{% include "blocks/_buttons.njk" %}
+      {%- if block.image %}<div class="mt">{% photo block.image, "card" %}</div>{% endif %}
+    </div>
+    <div class="split-side">
+      {%- if block.side_image %}{% photo block.side_image, "card" %}{% endif %}
+      {%- if block.steps %}
+      <ol class="steps">
+        {%- for s in block.steps %}<li><strong>{{ s.title | fill }}</strong> {{ s.text | mdi | safe }}</li>{% endfor %}
+      </ol>
+      {%- endif %}
+      {%- if block.quote %}
+      <blockquote class="quote"><p>“{{ block.quote.text | mdi | safe }}”</p>{% if block.quote.by %}<footer>{{ block.quote.by }}</footer>{% endif %}</blockquote>
+      {%- endif %}
+    </div>
+  </div>
+</section>

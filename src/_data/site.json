@@ -1,4 +1,6 @@
 {
+  "theme": "showroom",
+  "showThemePicker": true,
   "name": "Aggieland Lighting and Design",
   "shortName": "Aggieland Lighting",
   "url": "https://aggielandlighting.com",
@@ -16,6 +18,36 @@
   "consultFormEndpoint": "",
   "googleProfileUrl": "",
   "facebookUrl": "https://www.facebook.com/p/Aggieland-Lighting-Design-61554382526015/",
-  "areas": ["College Station", "Bryan", "Wellborn", "Brazos County"],
-  "brands": ["Visual Comfort", "Hubbardton Forge", "Arteriors", "Schonbek", "Corbett", "Hinkley", "Hudson Valley", "Mitzi", "Uttermost", "Electric Mirror"]
+  "areas": [
+    "College Station",
+    "Bryan",
+    "Wellborn",
+    "Brazos County"
+  ],
+  "brands": [
+    "Visual Comfort",
+    "Hubbardton Forge",
+    "Arteriors",
+    "Schonbek",
+    "Corbett",
+    "Hinkley",
+    "Hudson Valley",
+    "Mitzi",
+    "Uttermost",
+    "Electric Mirror"
+  ],
+  "hours": [
+    {
+      "days": "Monday–Friday",
+      "time": "9:00 am – 5:00 pm"
+    },
+    {
+      "days": "Saturday",
+      "time": "Closed"
+    },
+    {
+      "days": "Sunday",
+      "time": "Closed"
+    }
+  ]
 }

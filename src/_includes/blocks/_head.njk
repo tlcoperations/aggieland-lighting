@@ -1,0 +1,4 @@
+{#- Shared heading used by most blocks: eyebrow, title, intro text -#}
+{%- if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow | mdi | safe }}</p>{% endif %}
+{%- if block.title %}<h2>{{ block.title | mdi | safe }}</h2>{% endif %}
+{%- if block.text and not skipText %}<div class="intro">{{ block.text | md | safe }}</div>{% endif %}

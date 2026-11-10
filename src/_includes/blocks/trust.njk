@@ -1,0 +1,6 @@
+{#- TRUST BAR — a row of short proof points. items[] -#}
+<div class="trust-bar">
+  <ul class="container trust-list">
+    {%- for item in block.items %}<li>{{ item | fill }}</li>{% endfor %}
+  </ul>
+</div>

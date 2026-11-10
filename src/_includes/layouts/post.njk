@@ -9,7 +9,7 @@ layout: layouts/base.njk
       "@type": "BlogPosting",
       "headline": {{ title | jsonString | safe }},
       "description": {{ description | jsonString | safe }},
-      {% if heroImage %}"image": "{{ ('/images/remote/' + photos[heroImage].file) | absoluteUrl(site.url) }}",{% endif %}
+      {% if heroImage %}"image": "{{ heroImage | photoUrl | absoluteUrl(site.url) }}",{% endif %}
       "datePublished": "{{ page.date | isoDate }}",
       "dateModified": "{{ (updated or page.date) | isoDate }}",
       "mainEntityOfPage": "{{ page.url | absoluteUrl(site.url) }}",
@@ -35,7 +35,7 @@ layout: layouts/base.njk
       <p class="meta">{{ page.date | readableDate }} · {{ site.name }}, College Station</p>
     </div>
   </header>
-  {% if heroImage %}{% include "photo-band.njk" %}{% endif %}
+  {% if heroImage %}<div class="photo-band"><div class="container">{% photo heroImage, "wide", "", false %}</div></div>{% endif %}
   <div class="section">
     <div class="container narrow prose">
       {{ content | safe }}
@@ -43,7 +43,7 @@ layout: layouts/base.njk
         <h2>Want help with your house?</h2>
         <p>Bring your plans to our showroom at {{ site.street }} in College Station. Walk-ins are welcome {{ site.hoursShort }}, and the room-by-room lighting consultation is free.</p>
         <div class="cta-row">
-          <a class="btn btn-dark" href="/lighting-consultation/">Book a Free Consultation</a>
+          <a class="btn btn-primary" href="/lighting-consultation/">Book a Free Consultation</a>
           <a class="btn btn-outline" href="/shop/">Shop Online</a>
         </div>
       </aside>

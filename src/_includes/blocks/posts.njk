@@ -1,0 +1,16 @@
+{#- POSTS — latest blog posts. eyebrow, title, text, limit (leave out for all), columns -#}
+<section class="section bg-{{ block.bg or 'plain' }}">
+  <div class="container">
+    {% include "blocks/_head.njk" %}
+    <div class="grid grid-{{ block.columns or 3 }}">
+      {%- for post in collections.posts | limit(block.limit) %}
+      <article class="card post-card{% if post.data.heroImage %} card-photo{% endif %}">
+        {% if post.data.heroImage %}<a href="{{ post.url }}" tabindex="-1" aria-hidden="true">{% photo post.data.heroImage, "card", "-" %}</a>{% endif %}
+        <p class="meta">{{ post.date | readableDate }}</p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

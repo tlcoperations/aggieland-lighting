@@ -1,0 +1,22 @@
+{#- VISIT INFO — address, hours and map from site.json. title, text -#}
+<section class="section bg-{{ block.bg or 'plain' }}">
+  <div class="container grid-2">
+    <div class="info-card">
+      <h2>{{ block.title or "Address & hours" }}</h2>
+      <p class="text-lg"><strong>{{ site.name }}</strong><br>{{ site.street }}<br>{{ site.city }}, {{ site.region }} {{ site.zip }}</p>
+      <p class="text-lg"><a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a></p>
+      <table class="hours">
+        {%- for h in site.hours %}<tr><th scope="row">{{ h.days }}</th><td>{{ h.time }}</td></tr>{% endfor %}
+      </table>
+      {% if block.text %}{{ block.text | md | safe }}{% endif %}
+      <div class="cta-row">
+        <a class="btn btn-primary" href="{{ site.mapsUrl }}" rel="noopener">Get Directions</a>
+        <a class="btn btn-outline" href="/lighting-consultation/">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <iframe title="Map to {{ site.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q={{ (site.street + ' ' + site.city + ' ' + site.region + ' ' + site.zip) | urlencode }}&z=14&output=embed"></iframe>
+    </div>
+  </div>
+</section>

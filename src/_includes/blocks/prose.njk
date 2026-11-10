@@ -1,0 +1,7 @@
+{#- PROSE — plain written text (Markdown). eyebrow, title, text, wide: true for full width -#}
+<section class="section bg-{{ block.bg or 'plain' }}"{% if block.id %} id="{{ block.id }}"{% endif %}>
+  <div class="container {% if not block.wide %}narrow {% endif %}prose">
+    {% include "blocks/_head.njk" %}
+    {%- set link = block.link %}{% include "blocks/_link.njk" %}
+  </div>
+</section>

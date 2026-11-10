@@ -1,0 +1,9 @@
+{#- CALLOUT — a bold band with a message and buttons. eyebrow, title, text, buttons -#}
+<section class="callout">
+  <div class="container callout-inner">
+    <div>
+      {% include "blocks/_head.njk" %}
+    </div>
+    {%- set buttons = block.buttons %}{% include "blocks/_buttons.njk" %}
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{#- HERO — big opening section with photo.
+    kicker, title, text, buttons[{text,href,style}], image -#}
+<section class="hero{% if block.bg %} bg-{{ block.bg }}{% endif %}">
+  <div class="container hero-grid{% if not block.image %} hero-noimg{% endif %}">
+    <div class="hero-copy">
+      <h1>{% if block.kicker %}<span class="kicker">{{ block.kicker }}</span>{% endif %}{{ block.title | mdi | safe }}</h1>
+      {% if block.text %}<div class="lede">{{ block.text | md | safe }}</div>{% endif %}
+      {%- set buttons = block.buttons %}{% include "blocks/_buttons.njk" %}
+    </div>
+    {%- if block.image %}
+    <figure class="hero-photo">{% photo block.image, "hero", "", false %}</figure>
+    {%- endif %}
+  </div>
+</section>

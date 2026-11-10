@@ -1,0 +1,13 @@
+{#- FAQ — questions that open and close. Also tells Google about them (FAQ rich results).
+    eyebrow, title, items[{q,a}] -#}
+<section class="section bg-{{ block.bg or 'tint' }}">
+  <div class="container narrow">
+    {% include "blocks/_head.njk" %}
+    <div class="faq">
+      {%- for f in block.items %}
+      <details><summary>{{ f.q | fill }}</summary>{{ f.a | md | safe }}</details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in block.items %}{"@type":"Question","name":{{ f.q | jsonString | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | jsonString | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>

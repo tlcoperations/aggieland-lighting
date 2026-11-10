@@ -1,0 +1,7 @@
+{%- if buttons and buttons.length %}
+<div class="cta-row">
+  {%- for b in buttons %}
+  <a class="btn btn-{{ b.style or ('primary' if loop.first else 'outline') }}" href="{{ b.href | fill }}">{{ b.text | fill }}</a>
+  {%- endfor %}
+</div>
+{%- endif %}

@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+---
+{#- A page is a stack of blocks listed in its front matter under `blocks:`.
+    Each block's `type` picks a file in src/_includes/blocks/.
+    A block of type "content" shows the Markdown written below the front matter. -#}
+{%- for block in blocks %}
+{%- include "blocks/" + block.type + ".njk" %}
+{%- endfor %}
+{%- if (content | trim) and not (blocks | hasBlock("content")) %}
+<section class="section"><div class="container narrow prose">{{ content | safe }}</div></section>
+{%- endif %}

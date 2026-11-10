@@ -1,0 +1,15 @@
+{#- ROOMS — photo tiles with a caption, linked. eyebrow, title, items[{image,title,text,href}], note -#}
+<section class="section bg-{{ block.bg or 'plain' }}">
+  <div class="container">
+    {% include "blocks/_head.njk" %}
+    <div class="room-grid">
+      {%- for item in block.items %}
+      <a class="room" href="{{ (item.href or '{shop}') | fill }}">
+        {% photo item.image, "square" %}
+        <span><strong>{{ item.title }}</strong>{{ item.text }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+    {% if block.note %}<div class="note">{{ block.note | md | safe }}</div>{% endif %}
+  </div>
+</section>

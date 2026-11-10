@@ -1,0 +1,12 @@
+{#- PAGE HEADER — top of an inner page. eyebrow, title, text, buttons, image (wide photo below) -#}
+<section class="page-hero">
+  <div class="container narrow">
+    {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+    <h1>{{ block.title | mdi | safe }}</h1>
+    {% if block.text %}<div class="lede">{{ block.text | md | safe }}</div>{% endif %}
+    {%- set buttons = block.buttons %}{% include "blocks/_buttons.njk" %}
+  </div>
+</section>
+{%- if block.image %}
+<div class="photo-band"><div class="container">{% photo block.image, "wide", "", false %}</div></div>
+{%- endif %}
