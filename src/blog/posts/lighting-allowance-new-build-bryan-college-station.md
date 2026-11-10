@@ -1,4 +1,5 @@
 ---
+heroImage: kitchen-island
 title: "What a Lighting Allowance Actually Covers on a New Build in Bryan–College Station"
 description: "Your builder gave you a lighting allowance. Here's what it usually covers, what it doesn't, and how to spend it well on a new home in Bryan–College Station."
 date: 2026-11-02

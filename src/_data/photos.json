@@ -1,0 +1,18 @@
+{
+  "_note": "Images listed here are downloaded into src/images/remote/ by scripts/fetch-images.js before every build (npm run build). Use them in templates as /images/remote/<key>.<ext>. To use your own photo instead, drop the file in src/images/ and point the template at it.",
+  "logo": { "url": "https://s3.amazonaws.com/webflow-prod-assets/6a7510caa2249d2a7e85974d/6a752cfb76618bf3d3d85582_HorzLogo%20-%20Dark-Yellow-p-500.png", "file": "logo.png" },
+  "logo-light": { "url": "https://s3.amazonaws.com/webflow-prod-assets/6a7510caa2249d2a7e85974d/6a7529c5433021ff99ad322c_HorzLogo%20-%20Yellow-Transparent.png", "file": "logo-light.png" },
+  "logo-mark": { "url": "https://localcdn.lightsamerica.com/aggielandlighting.com/img/logo/aggieland-main-logo-primary-2023.png", "file": "logo-mark.png" },
+  "entry": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-slideshow/slide_01.jpg", "file": "entry.jpg", "alt": "Two-story entry with a brass linear chandelier and matching wall sconces" },
+  "kitchen-chandeliers": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-slideshow/slide_02.jpg", "file": "kitchen-chandeliers.jpg", "alt": "Open kitchen and dining room with lantern pendants and a gold chandelier" },
+  "kitchen-island": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-slideshow/slide_03.jpg", "file": "kitchen-island.jpg", "alt": "Kitchen island with a cluster of brass globe pendants and a wall sconce" },
+  "dining": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-slideshow/slide_04.jpg", "file": "dining.jpg", "alt": "Dining table under a round open-frame chandelier" },
+  "breakfast-nook": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_1/large.jpg", "file": "breakfast-nook.jpg", "alt": "Gold candle chandelier over a breakfast nook with tall windows" },
+  "white-kitchen": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_1/small-1.jpg", "file": "white-kitchen.jpg", "alt": "White kitchen with white dome pendants over the island" },
+  "ring-pendant": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_1/small-2.jpg", "file": "ring-pendant.jpg", "alt": "Two-tier ring pendant in a soft green room" },
+  "living-fan": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_2/large.jpg", "file": "living-fan.jpg", "alt": "Living room with a ceiling fan and a linear chandelier over the kitchen" },
+  "white-pendant": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_2/small-1.jpg", "file": "white-pendant.jpg", "alt": "Large white dome pendant against a white wall" },
+  "living-chandelier": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_2/small-2.jpg", "file": "living-chandelier.jpg", "alt": "Bright living room with navy chairs under a black candle chandelier" },
+  "porch": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_3/large.jpg", "file": "porch.jpg", "alt": "Covered patio with a large outdoor wagon-wheel chandelier" },
+  "drum-pendant": { "url": "https://cdn.lightsamerica.com/webimages/6017/home-rooms_3/small-1.jpg", "file": "drum-pendant.jpg", "alt": "Black drum pendant over a dining table in a shiplap room" }
+}

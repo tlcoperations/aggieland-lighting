@@ -9,6 +9,7 @@ layout: layouts/base.njk
       "@type": "BlogPosting",
       "headline": {{ title | jsonString | safe }},
       "description": {{ description | jsonString | safe }},
+      {% if heroImage %}"image": "{{ ('/images/remote/' + photos[heroImage].file) | absoluteUrl(site.url) }}",{% endif %}
       "datePublished": "{{ page.date | isoDate }}",
       "dateModified": "{{ (updated or page.date) | isoDate }}",
       "mainEntityOfPage": "{{ page.url | absoluteUrl(site.url) }}",
@@ -34,6 +35,7 @@ layout: layouts/base.njk
       <p class="meta">{{ page.date | readableDate }} · {{ site.name }}, College Station</p>
     </div>
   </header>
+  {% if heroImage %}{% include "photo-band.njk" %}{% endif %}
   <div class="section">
     <div class="container narrow prose">
       {{ content | safe }}

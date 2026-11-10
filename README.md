@@ -32,6 +32,9 @@ Your post text here. Use ## for section headings.
 
 Commit and push — it goes live in a minute or two, and is added to the blog page, home page, footer and sitemap automatically. Aim for posts that answer what people in Bryan–College Station actually ask in the showroom.
 
+## Photos
+Photos and logos are listed in `src/_data/photos.json`. Every build downloads them into `src/images/remote/` and the site serves its own copies. To add or swap a photo, add an entry there (or drop your own file in `src/images/`).
+
 ## Run locally
 ```bash
 npm install
@@ -56,5 +59,5 @@ Old store paths on the main domain (`/landing/*`, `/large-chandeliers`) redirect
 ## After launch
 - Google Search Console: add the domain, submit `https://aggielandlighting.com/sitemap.xml`.
 - Google Business Profile: set the website to `https://aggielandlighting.com/`, and put the profile URL in `googleProfileUrl` in `site.json`.
-- Photos: add real showroom/project photos to `src/images/` and reference them in the pages (the current design uses illustrations only). Replace `src/images/logo.svg` with the real logo if you prefer.
+- Photos: the current photos are manufacturer room shots from the store. Add real showroom and local project photos when you have them.
 - Consultation form: the site has no server. To add the form, create a free form endpoint (Formspree, Basin, etc.) and paste its URL into `consultFormEndpoint` in `site.json`; until then the page shows call/visit buttons.

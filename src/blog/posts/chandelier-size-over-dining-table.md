@@ -1,4 +1,5 @@
 ---
+heroImage: dining
 title: "How Big Should a Chandelier Be Over a Dining Table?"
 description: "Simple rules for chandelier size and hanging height over a dining table, from a College Station lighting showroom — with examples for round and rectangular tables."
 date: 2026-10-26

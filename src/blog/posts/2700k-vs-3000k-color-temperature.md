@@ -1,4 +1,5 @@
 ---
+heroImage: living-chandelier
 title: "2700K vs. 3000K: What Color Temperature Does to Your House"
 description: "What the K number on a light bulb means, how 2700K and 3000K look in a real home, and how to choose one color temperature for your whole house."
 date: 2026-10-19

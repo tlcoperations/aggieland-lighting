@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Aggieland Lighting and Design - lighting showroom in College Station, TX",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "start": "node scripts/fetch-images.js && npx @11ty/eleventy --serve",
+    "build": "node scripts/fetch-images.js && npx @11ty/eleventy",
+    "fetch-images": "node scripts/fetch-images.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

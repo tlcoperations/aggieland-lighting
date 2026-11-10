@@ -15,7 +15,7 @@
   <meta property="og:title" content="{{ pageTitle }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ pageUrl }}">
-  <meta property="og:image" content="{{ (ogImage or '/images/share.png') | absoluteUrl(site.url) }}">
+  <meta property="og:image" content="{{ (('/images/remote/' + photos[heroImage].file) if heroImage else (ogImage or '/images/share.png')) | absoluteUrl(site.url) }}">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -33,8 +33,8 @@
     "description": "Locally owned lighting showroom in College Station, Texas with 75+ designer lighting lines, ceiling fans, and free room-by-room lighting consultations for new builds and remodels in Bryan–College Station.",
     "url": "{{ site.url }}/",
     "telephone": "{{ site.phoneE164 }}",
-    "image": "{{ '/images/share.png' | absoluteUrl(site.url) }}",
-    "logo": "{{ '/images/logo.svg' | absoluteUrl(site.url) }}",
+    "image": ["{{ '/images/remote/entry.jpg' | absoluteUrl(site.url) }}", "{{ '/images/share.png' | absoluteUrl(site.url) }}"],
+    "logo": "{{ '/images/remote/logo-mark.png' | absoluteUrl(site.url) }}",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "{{ site.street }}",

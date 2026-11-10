@@ -1,4 +1,5 @@
 ---
+heroImage: living-fan
 title: "What Size Ceiling Fan Do I Need? A Room-by-Room Guide for Texas Homes"
 description: "Ceiling fan sizes by room, how far a fan should hang from the ceiling, and indoor vs. outdoor ratings for patios — from a Bryan–College Station lighting showroom."
 date: 2026-11-09
