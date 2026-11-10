@@ -1,0 +1,137 @@
+---
+layout: layouts/base.njk
+title: "Aggieland Lighting and Design | Lighting Showroom in College Station, TX"
+description: "Lighting showroom in College Station, TX. 75+ designer lines, ceiling fans, and a free room-by-room lighting consultation for new builds and remodels in Bryan–College Station. Walk-ins welcome."
+faqs:
+  - q: "Where is Aggieland Lighting and Design?"
+    a: "Our showroom is at 12850 Old Wellborn Rd, Suite 400, in College Station, TX 77845 — easy to reach from anywhere in Bryan–College Station."
+  - q: "Do I need an appointment?"
+    a: "No. Walk-ins are welcome Monday through Friday, 9:00 to 5:00. If you'd like an hour with someone who'll go room by room through your house, book a free lighting consultation so someone is definitely free when you arrive."
+  - q: "My builder hasn't sent me to you. Can I still come in?"
+    a: "Yes. Whoever's building your house, you're welcome here. Dozens of builders around Bryan–College Station already work with us, and we'll work alongside yours — we'll hand them a clean fixture list with quantities, finishes and lead times."
+  - q: "What brands do you carry?"
+    a: "More than seventy-five designer lines, including Visual Comfort, Hubbardton Forge, Arteriors, Schonbek, Corbett, Hinkley, Hudson Valley, Mitzi, Uttermost and Electric Mirror — brands you'd otherwise drive to Houston to see."
+  - q: "Do you sell ceiling fans and outdoor lighting?"
+    a: "Yes. Chandeliers, pendants, vanity lights, sconces, ceiling fans, exterior lights and lamps. About a hundred fixtures and fans are on the floor at any time, and we can get thousands more."
+  - q: "Can I buy online?"
+    a: "Yes — our full catalog is online at shop.aggielandlighting.com. Anything you find there, you can also come see or order in the showroom, and we'll tell you honestly how it will look in your home."
+  - q: "What happens if something arrives damaged or fails later?"
+    a: "You call us, and we deal with the manufacturer. You never have to file a claim with a company you've never spoken to."
+---
+{%- set faqSchema %}{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in faqs %}{"@type":"Question","name":{{ f.q | jsonString | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | jsonString | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}{% endset %}
+<script type="application/ld+json">{{ faqSchema | safe }}</script>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1><span class="kicker">Lighting showroom in College Station, TX</span>You know how you want it to feel. We'll help you get there.</h1>
+      <p class="lede">Most people choosing lighting have never done it before. We'll walk your house room by room, help you choose, and still be here after.</p>
+      <div class="cta-row">
+        <a class="btn btn-dark" href="/lighting-consultation/">Book a Free Lighting Consultation</a>
+        <a class="btn btn-outline" href="/visit/">Visit the Showroom</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      {% include "pendants.svg" %}
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <ul class="container trust-list">
+    <li>75+ designer lines</li>
+    <li>Every fixture in the house</li>
+    <li>Dozens of local builders work with us</li>
+    <li>Owned by two Aggieland families</li>
+  </ul>
+</div>
+
+<section class="section section-wash">
+  <div class="container grid-2">
+    <div>
+      <p class="eyebrow eyebrow-gold">Building or remodeling in Bryan–College Station?</p>
+      <h2>Whoever's building your house, you're welcome here.</h2>
+      <p class="text-lg">Your budget, your taste, your call. Bring your plans and your allowance and we'll walk the whole house with you — every room, fixture by fixture — showing you what's possible at your number and what we'd do in your shoes. Nothing gets ordered until you love it.</p>
+      <p class="text-lg">Some builders send their clients straight to us; some haven't found us yet. Either way, we'll work alongside whoever's building for you. There are houses all over Bryan–College Station with our lighting in them, which means we've walked a lot of people through exactly this.</p>
+      <a class="text-link" href="/blog/lighting-allowance-new-build-bryan-college-station/">What a lighting allowance actually covers →</a>
+    </div>
+    <ol class="steps">
+      <li><strong>You come in.</strong> No appointment needed.</li>
+      <li><strong>We walk your house on paper.</strong> Room by room, front door to back porch.</li>
+      <li><strong>We show you options.</strong> A short list that fits your rooms and your budget.</li>
+      <li><strong>We build your lighting plan.</strong> Every fixture, quantities, finishes, and the number at the bottom.</li>
+      <li><strong>We coordinate with your builder.</strong> Whoever they are.</li>
+      <li><strong>We hold it until you need it.</strong> Nothing shows up at the job site early to get stepped on.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Why come in</p>
+    <h2>Anyone can sell you a fixture. We'll help you pick the right one.</h2>
+    <div class="grid-3">
+      <article class="card">
+        <h3>We'll help you choose.</h3>
+        <p>Bring your plans, leave with a lighting plan. Layering, scale, color temperature, how many and how big — you don't need to know what 2700K means. That's our job, and it's free.</p>
+        <a class="text-link" href="/lighting-consultation/">About the free consultation →</a>
+      </article>
+      <article class="card">
+        <h3>Brands the big boxes can't sell.</h3>
+        <p>{{ site.brands | join(", ") }}. Seventy-five lines and counting — most of them you'd otherwise drive to Houston to see.</p>
+        <a class="text-link" href="/shop/">Browse the catalog →</a>
+      </article>
+      <article class="card">
+        <h3>Come learn what you like.</h3>
+        <p>A photo can't tell you how a room will feel. About a hundred fixtures and fans are on our floor, always rotating — see how a finish reads and how big something feels over a table.</p>
+        <a class="text-link" href="/visit/">Plan a visit →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-wash">
+  <div class="container grid-2 align-center">
+    <blockquote class="quote">
+      <p>“Most people walk in with no idea where to start. That's completely normal — it's the whole reason we're here. You're making a few hundred permanent decisions about the most expensive thing you'll ever own, and lighting is one of the hardest ones. Let's just take it a room at a time.”</p>
+      <footer>Becca Keefauver, Owner</footer>
+    </blockquote>
+    <div>
+      <p class="eyebrow eyebrow-gold">After you buy</p>
+      <h2>And we're still here after.</h2>
+      <p class="text-lg">Every brand's warranty is different. Ours is simple: you call us, and we deal with them. If a fixture shows up damaged, the finish is wrong, or something quits in two years, you call the showroom on Old Wellborn Road and we handle it.</p>
+      <a class="text-link" href="/about/">Meet the team →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Lighting guides</p>
+    <h2>Answers to what people ask us in the showroom.</h2>
+    <div class="grid-3">
+      {%- for post in collections.posts | limit(3) %}
+      <article class="card post-card">
+        <p class="meta">{{ post.date | readableDate }}</p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container narrow">
+    <p class="eyebrow">Questions</p>
+    <h2>Common questions about our College Station showroom</h2>
+    <div class="faq">
+      {%- for f in faqs %}
+      <details>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

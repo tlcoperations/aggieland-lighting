@@ -1,0 +1,21 @@
+{
+  "name": "Aggieland Lighting and Design",
+  "shortName": "Aggieland Lighting",
+  "url": "https://aggielandlighting.com",
+  "shopUrl": "https://shop.aggielandlighting.com",
+  "phone": "979-220-7960",
+  "phoneE164": "+19792207960",
+  "email": "",
+  "street": "12850 Old Wellborn Rd, Suite 400",
+  "city": "College Station",
+  "region": "TX",
+  "zip": "77845",
+  "mapsUrl": "https://maps.google.com/?q=12850+Old+Wellborn+Rd+Suite+400+College+Station+TX+77845",
+  "hoursText": "Monday–Friday, 9:00 to 5:00. Closed Saturday and Sunday.",
+  "hoursShort": "Mon–Fri 9–5",
+  "consultFormEndpoint": "",
+  "googleProfileUrl": "",
+  "facebookUrl": "https://www.facebook.com/p/Aggieland-Lighting-Design-61554382526015/",
+  "areas": ["College Station", "Bryan", "Wellborn", "Brazos County"],
+  "brands": ["Visual Comfort", "Hubbardton Forge", "Arteriors", "Schonbek", "Corbett", "Hinkley", "Hudson Valley", "Mitzi", "Uttermost", "Electric Mirror"]
+}

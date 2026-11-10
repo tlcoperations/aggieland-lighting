@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+title: "Free Lighting Consultation, College Station TX | Aggieland Lighting"
+description: "A free lighting consultation in our College Station showroom. Bring your plans and we'll build a room-by-room lighting plan for your new build or remodel in Bryan–College Station."
+permalink: /lighting-consultation/
+schema: '{"@context":"https://schema.org","@type":"Service","name":"Free lighting consultation","serviceType":"Residential lighting design consultation","provider":{"@id":"https://aggielandlighting.com/#store"},"areaServed":["College Station, TX","Bryan, TX","Brazos County, TX"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}'
+---
+<section class="page-hero">
+  <div class="container narrow">
+    <p class="eyebrow eyebrow-gold">Free · No obligation</p>
+    <h1>A free lighting consultation in College Station.</h1>
+    <p class="lede">Not a sales pitch, and not interior design. Just an hour or two with someone who does this every day, going room by room through your house.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow prose">
+    <h2>What happens in a consultation</h2>
+    <p>You sit down with one of our lighting consultants and work through your home one room at a time. Layering — how ambient, task, and accent light work together in a real room. Scale, which is the single most common thing people get wrong. Color temperature, and why the same bulb reads warm in one room and clinical in another. How many fixtures, and how big. What to dim and how.</p>
+    <p>You leave with a lighting plan: every room, every fixture, quantities and finishes, and a number at the bottom.</p>
+    <p><strong>It's free.</strong> There's no deposit, no design fee, and no obligation to buy anything from us at the end of it.</p>
+
+    <h2>Who it's for</h2>
+    <p>Building a new home in Bryan–College Station and holding an allowance you're not sure how to spend. Remodeling a kitchen, a primary bath, or the whole house. Working with an interior designer and wanting the lighting handled properly alongside them. Or replacing one thing and wanting it to be right.</p>
+
+    <h2>What to bring</h2>
+    <ul>
+      <li>Your plans, if you have them — printed or a PDF on your phone</li>
+      <li>Your allowance number</li>
+      <li>Ceiling heights, if you know them</li>
+      <li>Photos of finishes you've already picked: cabinets, tile, countertops, plumbing, flooring</li>
+      <li>Anything you've saved that you liked. Screenshots count. So does “I don't know, but not that.”</li>
+    </ul>
+    <p>If you have none of that, come anyway. We'd rather start early with half the information than late with all of it.</p>
+
+    <h2>We do lighting. We don't do interiors.</h2>
+    <p>If you're working with an interior designer, we work alongside them — not around them. We'll take direction from your designer, spec to their vision, and hand everything back in a form they can use. And if you'd be better served by a full interior designer, we'll tell you and point you to one of the good ones in town.</p>
+  </div>
+</section>
+
+<section class="section section-wash">
+  <div class="container">
+    <p class="eyebrow">Who you'll be working with</p>
+    <h2>The team.</h2>
+    <div class="grid-3">
+      <article class="card"><h3>Becca Keefauver</h3><p class="meta">Owner</p><p>She built this showroom, the team, and the standard everybody here works to.</p></article>
+      <article class="card"><h3>Hunter Lapp</h3><p class="meta">Lead Lighting Consultant</p><p>Hunter leads our consultations. Bring her your plans and your number, and she'll walk the whole house with you — room by room, until it's right.</p></article>
+      <article class="card"><h3>A'rynn Valcin</h3><p class="meta">Lighting Consultant</p><p>A'rynn helps you narrow thousands of options down to the handful that fit your rooms, your budget, and the way you want your home to feel.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="book">
+  <div class="container narrow">
+    <h2>Book it.</h2>
+    {%- if site.consultFormEndpoint %}
+    <p>Fill this out and somebody will get back to you within a business day. Or call <a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a> and ask for whoever's around. That works too.</p>
+    <form class="form" action="{{ site.consultFormEndpoint }}" method="POST">
+      <label>Name <input name="name" autocomplete="name" required></label>
+      <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
+      <label>Email <input name="email" type="email" autocomplete="email" required></label>
+      <label>What are you working on? <select name="project"><option>New build</option><option>Remodel</option><option>Replacing a fixture or two</option><option>Something else</option></select></label>
+      <label>Anything we should know? <textarea name="message" rows="4"></textarea></label>
+      <button class="btn btn-dark" type="submit">Request a consultation</button>
+    </form>
+    {%- else %}
+    <p class="text-lg">Call <a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a> and ask for whoever's around, or just come by — {{ site.hoursText | lower }} Booking ahead means somebody's definitely free when you get here.</p>
+    <div class="cta-row">
+      <a class="btn btn-dark" href="tel:{{ site.phoneE164 }}">Call {{ site.phone }}</a>
+      <a class="btn btn-outline" href="/visit/">Directions &amp; hours</a>
+    </div>
+    {%- endif %}
+  </div>
+</section>

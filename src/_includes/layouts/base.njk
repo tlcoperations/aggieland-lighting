@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- set pageUrl = page.url | absoluteUrl(site.url) %}
+  {%- set pageTitle = title or (site.name + " | Lighting Showroom in College Station, TX") %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ pageUrl }}">
+  <meta name="robots" content="{{ robots or 'index, follow, max-image-preview:large' }}">
+
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ (ogImage or '/images/share.png') | absoluteUrl(site.url) }}">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1f1d1a">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["HomeGoodsStore", "LocalBusiness"],
+    "@id": "{{ site.url }}/#store",
+    "name": "{{ site.name }}",
+    "alternateName": "{{ site.shortName }}",
+    "description": "Locally owned lighting showroom in College Station, Texas with 75+ designer lighting lines, ceiling fans, and free room-by-room lighting consultations for new builds and remodels in Bryan–College Station.",
+    "url": "{{ site.url }}/",
+    "telephone": "{{ site.phoneE164 }}",
+    "image": "{{ '/images/share.png' | absoluteUrl(site.url) }}",
+    "logo": "{{ '/images/logo.svg' | absoluteUrl(site.url) }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.street }}",
+      "addressLocality": "{{ site.city }}",
+      "addressRegion": "{{ site.region }}",
+      "postalCode": "{{ site.zip }}",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }],
+    "areaServed": [{% for a in site.areas %}{"@type": "Place", "name": "{{ a }}, TX"}{% if not loop.last %}, {% endif %}{% endfor %}],
+    "brand": [{% for b in site.brands %}{"@type": "Brand", "name": "{{ b }}"}{% if not loop.last %}, {% endif %}{% endfor %}],
+    "hasMap": "{{ site.mapsUrl }}",
+    "sameAs": [{% if site.googleProfileUrl %}"{{ site.googleProfileUrl }}", {% endif %}"{{ site.facebookUrl }}"]
+  }
+  </script>
+  {%- if schema %}
+  <script type="application/ld+json">{{ schema | safe }}</script>
+  {%- endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "header.njk" %}
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script>
+    (function () {
+      var b = document.querySelector('.nav-toggle'), n = document.getElementById('site-nav');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') === 'true';
+        b.setAttribute('aria-expanded', String(!open));
+        n.classList.toggle('is-open', !open);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": {{ title | jsonString | safe }},
+      "description": {{ description | jsonString | safe }},
+      "datePublished": "{{ page.date | isoDate }}",
+      "dateModified": "{{ (updated or page.date) | isoDate }}",
+      "mainEntityOfPage": "{{ page.url | absoluteUrl(site.url) }}",
+      "author": {"@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/"},
+      "publisher": {"@id": "{{ site.url }}/#store"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/"},
+        {"@type": "ListItem", "position": 2, "name": "Lighting Guides", "item": "{{ site.url }}/blog/"},
+        {"@type": "ListItem", "position": 3, "name": {{ title | jsonString | safe }}, "item": "{{ page.url | absoluteUrl(site.url) }}"}
+      ]
+    }
+  ]
+}
+</script>
+<article class="post">
+  <header class="page-hero">
+    <div class="container narrow">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Lighting Guides</a></nav>
+      <h1>{{ title }}</h1>
+      <p class="meta">{{ page.date | readableDate }} · {{ site.name }}, College Station</p>
+    </div>
+  </header>
+  <div class="section">
+    <div class="container narrow prose">
+      {{ content | safe }}
+      <aside class="post-cta">
+        <h2>Want help with your house?</h2>
+        <p>Bring your plans to our showroom at {{ site.street }} in College Station. Walk-ins are welcome {{ site.hoursShort }}, and the room-by-room lighting consultation is free.</p>
+        <div class="cta-row">
+          <a class="btn btn-dark" href="/lighting-consultation/">Book a Free Consultation</a>
+          <a class="btn btn-outline" href="/shop/">Shop Online</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>

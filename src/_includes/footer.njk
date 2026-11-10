@@ -1,0 +1,48 @@
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <div>
+      <p class="eyebrow eyebrow-glow">Visit</p>
+      <h2>Come find the pieces your home deserves.</h2>
+      <p>{{ site.street }}, {{ site.city }}, {{ site.region }} {{ site.zip }}. {{ site.hoursText }} Walk-ins welcome. There's usually wine.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="{{ site.mapsUrl }}" rel="noopener">Get Directions</a>
+      <a class="btn btn-outline-light" href="tel:{{ site.phoneE164 }}">Call {{ site.phone }}</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="/images/logo-light.svg" alt="{{ site.name }}" width="190" height="44">
+      <p class="footer-nap">
+        <span>{{ site.name }}</span><br>
+        <span>{{ site.street }}<br>{{ site.city }}, {{ site.region }} {{ site.zip }}</span><br>
+        <a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a>
+      </p>
+      <p>{{ site.hoursText }}</p>
+    </div>
+    <div>
+      <h3>Showroom</h3>
+      <a href="/lighting-consultation/">Free lighting consultation</a>
+      <a href="/visit/">Visit &amp; directions</a>
+      <a href="/about/">About us</a>
+      <a href="/shop/">Shop online</a>
+    </div>
+    <div>
+      <h3>Lighting guides</h3>
+      {%- for post in collections.posts | limit(4) %}
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      {%- endfor %}
+      <a href="/blog/">All guides →</a>
+    </div>
+    <div>
+      <h3>Serving</h3>
+      <p>Bryan, College Station, Wellborn and the Brazos Valley. Locally owned by two Aggieland families.</p>
+      <a href="{{ site.facebookUrl }}" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="container footer-base">
+    © {{ build.year }} {{ site.name }}. Online catalog powered by LightsAmerica.
+  </div>
+</footer>

@@ -1,0 +1,35 @@
+# Render Blueprint: static site built with Eleventy
+services:
+  - type: web
+    runtime: static
+    name: aggieland-lighting
+    buildCommand: npm install && npm run build
+    staticPublishPath: _site
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /css/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=2592000
+    routes:
+      # Old LightsAmerica store paths on aggielandlighting.com -> the store's new home
+      - type: redirect
+        source: /landing/*
+        destination: https://shop.aggielandlighting.com/landing/*
+      - type: redirect
+        source: /large-chandeliers
+        destination: https://shop.aggielandlighting.com/large-chandeliers
+      - type: redirect
+        source: /directions
+        destination: /visit/
+      - type: redirect
+        source: /guides
+        destination: /blog/
+      - type: redirect
+        source: /building-or-remodeling
+        destination: /blog/lighting-allowance-new-build-bryan-college-station/

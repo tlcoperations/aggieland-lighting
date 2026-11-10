@@ -1,0 +1,23 @@
+<svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd27a" stop-opacity=".95"/>
+      <stop offset="45%" stop-color="#f3b54a" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#f3b54a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g stroke="#2a2723" stroke-width="2">
+    <line x1="110" y1="0" x2="110" y2="150"/>
+    <line x1="210" y1="0" x2="210" y2="215"/>
+    <line x1="310" y1="0" x2="310" y2="120"/>
+  </g>
+  <circle cx="110" cy="205" r="80" fill="url(#glow)"/>
+  <circle cx="210" cy="270" r="95" fill="url(#glow)"/>
+  <circle cx="310" cy="175" r="75" fill="url(#glow)"/>
+  <path d="M80 150 h60 l20 50 h-100 z" fill="#2a2723"/>
+  <path d="M175 215 q35 -18 70 0 l14 50 h-98 z" fill="#b8892f"/>
+  <path d="M285 120 a25 25 0 0 1 50 0 l12 45 h-74 z" fill="#2a2723"/>
+  <ellipse cx="110" cy="202" rx="50" ry="5" fill="#ffd98c"/>
+  <ellipse cx="210" cy="266" rx="49" ry="5" fill="#ffd98c"/>
+  <ellipse cx="310" cy="166" rx="37" ry="4" fill="#ffd98c"/>
+</svg>
