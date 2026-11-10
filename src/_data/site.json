@@ -129,7 +129,7 @@
   },
   "tracking": {
     "_help": "Paste IDs here to turn tracking on. Leave blank to keep it off. See README > Ads & tracking.",
-    "ga4Id": "",
+    "ga4Id": "G-0WN1X0Y5EP",
     "googleAdsId": "",
     "googleAdsConversions": {
       "call": "",
