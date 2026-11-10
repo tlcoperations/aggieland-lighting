@@ -1,5 +1,6 @@
 ---
 permalink: /blog/
+navTitle: Lighting Guides
 title: "Lighting Guides for Bryan–College Station Homes | Aggieland Lighting"
 description: "Practical lighting advice from a College Station showroom — lighting allowances, chandelier sizing, color temperature, ceiling fans, and what to get right the first time."
 

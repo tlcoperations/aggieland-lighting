@@ -8,5 +8,5 @@ layout: layouts/base.njk
 {%- include "blocks/" + block.type + ".njk" %}
 {%- endfor %}
 {%- if (content | trim) and not (blocks | hasBlock("content")) %}
-<section class="section"><div class="container narrow prose">{{ content | safe }}</div></section>
+<section class="section"><div class="container narrow prose">{{ content | fill | safe }}</div></section>
 {%- endif %}

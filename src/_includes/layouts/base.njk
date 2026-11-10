@@ -9,6 +9,8 @@
   <meta name="description" content="{{ description }}">
   <link rel="canonical" href="{{ pageUrl }}">
   <meta name="robots" content="{{ robots or 'index, follow, max-image-preview:large' }}">
+  <meta name="geo.region" content="US-TX">
+  <meta name="geo.placename" content="{{ site.city }}, Texas">
 
   <meta property="og:type" content="{{ ogType or 'website' }}">
   <meta property="og:site_name" content="{{ site.name }}">
@@ -20,11 +22,15 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   {%- if site.showThemePicker %}
   <script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("aggieTheme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
   {%- endif %}
 
+  {% include "tracking-head.njk" %}
+
+  {#- Business info for Google: who, where, when, and the area served (Brazos County first) -#}
+  {%- set sa = site.serviceArea %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,11 +38,12 @@
     "@id": "{{ site.url }}/#store",
     "name": "{{ site.name }}",
     "alternateName": "{{ site.shortName }}",
-    "description": "Locally owned lighting showroom in College Station, Texas with 75+ designer lighting lines, ceiling fans, and free room-by-room lighting consultations for new builds and remodels in Bryan–College Station.",
+    "description": "Locally owned lighting showroom in College Station, Texas serving Bryan–College Station and Brazos County, with 75+ designer lighting lines, ceiling fans, and free room-by-room lighting consultations for new builds and remodels.",
     "url": "{{ site.url }}/",
     "telephone": "{{ site.phoneE164 }}",
     "image": ["{{ '/images/remote/entry.jpg' | absoluteUrl(site.url) }}", "{{ '/images/share.png' | absoluteUrl(site.url) }}"],
     "logo": "{{ '/images/remote/logo-mark.png' | absoluteUrl(site.url) }}",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "{{ site.street }}",
@@ -51,17 +58,25 @@
       "opens": "09:00",
       "closes": "17:00"
     }],
-    "areaServed": [{% for a in site.areas %}{"@type": "Place", "name": "{{ a }}, TX"}{% if not loop.last %}, {% endif %}{% endfor %}],
+    "areaServed": [
+      {% for t in sa.primary.towns %}{"@type": "City", "name": "{{ t }}, TX"},{% endfor %}
+      {"@type": "AdministrativeArea", "name": "{{ sa.primary.county }}, TX"},
+      {% for c in sa.secondary %}{"@type": "AdministrativeArea", "name": "{{ c.county }}, TX"}{% if not loop.last %},{% endif %}{% endfor %}
+    ],
     "brand": [{% for b in site.brands %}{"@type": "Brand", "name": "{{ b }}"}{% if not loop.last %}, {% endif %}{% endfor %}],
     "hasMap": "{{ site.mapsUrl }}",
     "sameAs": [{% if site.googleProfileUrl %}"{{ site.googleProfileUrl }}", {% endif %}"{{ site.facebookUrl }}"]
   }
   </script>
+  {%- if page.url != "/" %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}{% if page.url.startsWith('/blog/') and page.url != '/blog/' %},{"@type":"ListItem","position":2,"name":"Lighting Guides","item":"{{ site.url }}/blog/"},{"@type":"ListItem","position":3,"name":{{ title | jsonString | safe }},"item":"{{ pageUrl }}"}{% else %},{"@type":"ListItem","position":2,"name":{{ (navTitle or title) | jsonString | safe }},"item":"{{ pageUrl }}"}{% endif %}]}</script>
+  {%- endif %}
   {%- if schema %}
   <script type="application/ld+json">{{ schema | safe }}</script>
   {%- endif %}
 </head>
 <body>
+  {% include "tracking-body.njk" %}
   <a class="skip-link" href="#main">Skip to content</a>
   {% include "header.njk" %}
   <main id="main">
@@ -80,5 +95,6 @@
       });
     })();
   </script>
+  <script src="/js/track.js" defer></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 ---
 permalink: /
-title: "Aggieland Lighting and Design | Lighting Showroom in College Station, TX"
+navTitle: Home
+title: "Lighting Store & Showroom in Bryan–College Station, TX | Aggieland Lighting"
 description: "Lighting showroom in College Station, TX. 75+ designer lines, ceiling fans, and a free room-by-room lighting consultation for new builds and remodels in Bryan–College Station. Walk-ins welcome."
 heroImage: entry
 
 blocks:
   - type: hero
-    kicker: Lighting showroom in College Station, TX
+    kicker: Lighting showroom serving Bryan & College Station, TX
     title: You know how you want it to feel. We'll help you get there.
     text: Most people choosing lighting have never done it before. We'll walk your house room by room, help you choose, and still be here after.
     image: entry
@@ -87,6 +88,11 @@ blocks:
     eyebrow: Lighting guides
     title: Answers to what people ask us in the showroom.
     limit: 3
+
+  - type: areas
+    eyebrow: Where we serve
+    title: Bryan–College Station first. The Brazos Valley too.
+    link: { text: All the areas we serve, href: /areas-we-serve/ }
 
   - type: faq
     eyebrow: Questions

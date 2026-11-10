@@ -1,5 +1,6 @@
 ---
 permalink: /lighting-consultation/
+navTitle: Free Lighting Consultation
 title: "Free Lighting Consultation, College Station TX | Aggieland Lighting"
 description: "A free lighting consultation in our College Station showroom. Bring your plans and we'll build a room-by-room lighting plan for your new build or remodel in Bryan–College Station."
 heroImage: white-kitchen

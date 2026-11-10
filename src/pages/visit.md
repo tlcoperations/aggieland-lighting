@@ -1,5 +1,6 @@
 ---
 permalink: /visit/
+navTitle: Visit the Showroom
 title: "Visit Our College Station Lighting Showroom | Aggieland Lighting"
 description: "Visit our lighting showroom at 12850 Old Wellborn Rd, Suite 400, College Station, TX. Open Monday–Friday 9–5. Walk-ins welcome — about a hundred fixtures and fans on display."
 heroImage: kitchen-chandeliers

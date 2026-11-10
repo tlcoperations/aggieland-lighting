@@ -1,5 +1,6 @@
 ---
 permalink: /shop/
+navTitle: Shop Online
 title: "Shop Lighting Online | Thousands of Fixtures | Aggieland Lighting and Design"
 description: "Browse thousands of lighting fixtures and ceiling fans from 75+ designer brands online — then see them in person at our College Station showroom."
 heroImage: living-fan

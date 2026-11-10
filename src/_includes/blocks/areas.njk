@@ -1,0 +1,24 @@
+{#- AREAS — where we serve, from site.json > serviceArea. Brazos County leads.
+    eyebrow, title, text, link (optional) -#}
+{%- set sa = site.serviceArea %}
+<section class="section bg-{{ block.bg or 'plain' }}"{% if block.id %} id="{{ block.id }}"{% endif %}>
+  <div class="container">
+    {% include "blocks/_head.njk" %}
+    <div class="areas">
+      <article class="card area-primary">
+        <p class="meta">Home base</p>
+        <h3>{{ sa.primary.county }}</h3>
+        <p>Our showroom is in {{ site.city }}. {{ sa.primary.towns | join(", ") }} — this is home.</p>
+        <p class="area-links"><a class="text-link" href="/lighting-store-college-station-tx/">College Station →</a> <a class="text-link" href="/lighting-store-bryan-tx/">Bryan →</a> <a class="text-link" href="/areas-we-serve/#brazos-county">All of Brazos County →</a></p>
+      </article>
+      {%- for c in sa.secondary %}
+      <article class="card">
+        <h3>{{ c.county }}</h3>
+        <p>{{ c.towns | join(", ") }}</p>
+        <a class="text-link" href="/areas-we-serve/#{{ c.county | slugify }}">{{ c.county }} →</a>
+      </article>
+      {%- endfor %}
+    </div>
+    {%- set link = block.link %}{% include "blocks/_link.njk" %}
+  </div>
+</section>

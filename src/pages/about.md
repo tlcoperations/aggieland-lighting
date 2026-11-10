@@ -1,5 +1,6 @@
 ---
 permalink: /about/
+navTitle: About
 title: "About Aggieland Lighting and Design | Locally Owned in College Station, TX"
 description: "Aggieland Lighting and Design is owned by two College Station families, with 75+ designer lighting lines and a small team that helps you find the pieces your home deserves."
 heroImage: breakfast-nook

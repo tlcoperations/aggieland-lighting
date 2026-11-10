@@ -15,16 +15,7 @@ layout: layouts/base.njk
       "mainEntityOfPage": "{{ page.url | absoluteUrl(site.url) }}",
       "author": {"@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/"},
       "publisher": {"@id": "{{ site.url }}/#store"}
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/"},
-        {"@type": "ListItem", "position": 2, "name": "Lighting Guides", "item": "{{ site.url }}/blog/"},
-        {"@type": "ListItem", "position": 3, "name": {{ title | jsonString | safe }}, "item": "{{ page.url | absoluteUrl(site.url) }}"}
-      ]
-    }
-  ]
+    }]
 }
 </script>
 <article class="post">

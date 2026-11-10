@@ -14,7 +14,11 @@ const tokens = {
   "{shop}": site.shopUrl,
   "{maps}": site.mapsUrl,
 };
-const fill = (s) => Object.entries(tokens).reduce((out, [k, v]) => out.split(k).join(v), String(s ?? ""));
+const fill = (s) =>
+  Object.entries(tokens).reduce(
+    (out, [k, v]) => out.split(k).join(v).split(encodeURI(k)).join(v), // also catches {maps} inside Markdown links
+    String(s ?? "")
+  );
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 module.exports = function (eleventyConfig) {

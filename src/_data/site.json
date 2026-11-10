@@ -56,12 +56,6 @@
   "consultFormEndpoint": "",
   "googleProfileUrl": "",
   "facebookUrl": "https://www.facebook.com/p/Aggieland-Lighting-Design-61554382526015/",
-  "areas": [
-    "College Station",
-    "Bryan",
-    "Wellborn",
-    "Brazos County"
-  ],
   "brands": [
     "Visual Comfort",
     "Hubbardton Forge",
@@ -87,5 +81,64 @@
       "days": "Sunday",
       "time": "Closed"
     }
-  ]
+  ],
+  "serviceArea": {
+    "primary": {
+      "county": "Brazos County",
+      "towns": [
+        "College Station",
+        "Bryan",
+        "Wellborn",
+        "Kurten",
+        "Millican"
+      ]
+    },
+    "secondary": [
+      {
+        "county": "Grimes County",
+        "towns": [
+          "Navasota",
+          "Anderson",
+          "Plantersville",
+          "Iola",
+          "Bedias",
+          "Todd Mission"
+        ],
+        "route": "Highway 6 from Navasota"
+      },
+      {
+        "county": "Madison County",
+        "towns": [
+          "Madisonville",
+          "Midway",
+          "North Zulch"
+        ],
+        "route": "Highway 21 from Madisonville"
+      },
+      {
+        "county": "Burleson County",
+        "towns": [
+          "Caldwell",
+          "Somerville",
+          "Snook",
+          "Lyons"
+        ],
+        "route": "Highway 21 from Caldwell"
+      }
+    ]
+  },
+  "tracking": {
+    "_help": "Paste IDs here to turn tracking on. Leave blank to keep it off. See README > Ads & tracking.",
+    "ga4Id": "",
+    "googleAdsId": "",
+    "googleAdsConversions": {
+      "call": "",
+      "directions": "",
+      "shop": "",
+      "consult": ""
+    },
+    "metaPixelId": "",
+    "googleSiteVerification": "",
+    "metaDomainVerification": ""
+  }
 }

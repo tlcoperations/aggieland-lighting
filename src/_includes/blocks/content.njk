@@ -1,4 +1,4 @@
 {#- CONTENT — shows the Markdown written below the page's front matter, right here. -#}
 <section class="section bg-{{ block.bg or 'plain' }}">
-  <div class="container narrow prose">{{ content | safe }}</div>
+  <div class="container narrow prose">{{ content | fill | safe }}</div>
 </section>
