@@ -2,7 +2,7 @@
     and set the chosen palette with "theme" in site.json. -#}
 <div class="theme-picker" role="group" aria-label="Preview color palettes">
   <span>Palette</span>
-  {%- for t in [["showroom","Showroom","#1f1d1a","#d9a441"],["maroon","Aggie Maroon","#5a0f17","#c9a46a"],["sage","Sage & Brass","#34483c","#c8a15a"],["navy","Navy & Copper","#1d3045","#c98451"],["clay","Warm Clay","#3b2a22","#c96f4a"],["gallery","Gallery White","#2b2b2b","#8fa7bd"]] %}
+  {%- for t in site.pickerThemes %}
   <button type="button" data-t="{{ t[0] }}" title="{{ t[1] }}" style="--a:{{ t[2] }};--b:{{ t[3] }}"><i></i><em>{{ t[1] }}</em></button>
   {%- endfor %}
 </div>

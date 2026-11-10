@@ -91,10 +91,10 @@ Every block takes `type`. Most also take `bg` (`plain`, `wash`, `tint`, `hero`, 
 
 ## Colors (palettes)
 
-Six palettes are built in: `showroom` (charcoal & gold), `maroon` (Aggie maroon & sand), `sage` (sage & brass), `navy` (navy & copper), `clay` (espresso & terracotta), `gallery` (white & soft blue).
+Current shortlist (all espresso brown with warm sand backgrounds): `espresso-brass`, `espresso-sage`, `espresso-rose`, `espresso-camel`, `espresso-slate`, plus the original `clay` (terracotta). Earlier options (`showroom`, `maroon`, `sage`, `navy`, `gallery`) are still in the stylesheet.
 
-- **While previewing**, a small palette switcher sits at the bottom-left of every page. You can also add `?theme=sage` to any URL.
-- **To pick one**, set `"theme"` in `src/_data/site.json`.
+- **While previewing**, a small palette switcher sits at the bottom-right of every page. You can also add `?theme=sage` to any URL.
+- **To pick one**, set `"theme"` in `src/_data/site.json`. The switcher shows the palettes listed in `pickerThemes`.
 - **Before launch**, set `"showThemePicker": false` to hide the switcher.
 - To tweak a palette, edit its variables at the top of `src/css/style.css`.
 

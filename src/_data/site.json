@@ -1,6 +1,44 @@
 {
-  "theme": "showroom",
+  "theme": "espresso-brass",
   "showThemePicker": true,
+  "pickerThemes": [
+    [
+      "espresso-brass",
+      "Espresso & Brass",
+      "#3b2a22",
+      "#b8935a"
+    ],
+    [
+      "espresso-sage",
+      "Espresso & Sage",
+      "#3b2a22",
+      "#8f9d7e"
+    ],
+    [
+      "espresso-rose",
+      "Espresso & Dusty Rose",
+      "#3b2a22",
+      "#c49a90"
+    ],
+    [
+      "espresso-camel",
+      "Espresso & Camel",
+      "#3b2a22",
+      "#c2a27c"
+    ],
+    [
+      "espresso-slate",
+      "Espresso & Slate Blue",
+      "#3b2a22",
+      "#7f95a3"
+    ],
+    [
+      "clay",
+      "Warm Clay (original)",
+      "#3b2a22",
+      "#c96f4a"
+    ]
+  ],
   "name": "Aggieland Lighting and Design",
   "shortName": "Aggieland Lighting",
   "url": "https://aggielandlighting.com",
