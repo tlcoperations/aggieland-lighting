@@ -1,0 +1,14 @@
+{#- CATALOG-TILES — category boxes that link into the online store. Categories come from src/_data/catalog.json
+    (title, text, url; blank url = store home page). Other fields: eyebrow, title, text, columns, note.
+    Every tile is counted as a "shop" click and gets the store UTM tags from track.js. -#}
+<section class="section bg-{{ block.bg or 'plain' }}">
+  <div class="container">
+    {% include "blocks/_head.njk" %}
+    <div class="grid grid-{{ block.columns or 4 }}">
+      {%- for c in catalog.categories %}
+      <a class="tile" href="{{ c.url or site.shopUrl }}" data-track="shop"><strong>{{ c.title }}</strong><span>{{ c.text }}</span></a>
+      {%- endfor %}
+    </div>
+    {% if block.note %}<div class="note">{{ block.note | md | safe }}</div>{% endif %}
+  </div>
+</section>

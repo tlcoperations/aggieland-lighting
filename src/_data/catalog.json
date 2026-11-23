@@ -1,0 +1,13 @@
+{
+  "_help": "Category tiles on /shop/. Paste a category page URL from the online store into each \"url\". Leave \"url\" blank to link to the store home page (site.json shopUrl). Add, remove or reorder entries freely.",
+  "categories": [
+    { "title": "Chandeliers", "text": "Dining rooms, entries, two-story foyers.", "url": "" },
+    { "title": "Pendants", "text": "Kitchen islands, bars and bedsides.", "url": "" },
+    { "title": "Bath & vanity", "text": "Vanity lights, sconces and lighted mirrors.", "url": "" },
+    { "title": "Ceiling fans", "text": "Indoor and outdoor fans for Texas summers.", "url": "" },
+    { "title": "Sconces", "text": "Hallways, stairs and either side of a mirror.", "url": "" },
+    { "title": "Outdoor", "text": "Porch, patio and entry lighting.", "url": "" },
+    { "title": "Flush & semi-flush", "text": "Bedrooms, closets and low ceilings.", "url": "" },
+    { "title": "Lamps", "text": "Table and floor lamps to finish a room.", "url": "" }
+  ]
+}

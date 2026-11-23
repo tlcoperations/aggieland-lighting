@@ -1,6 +1,6 @@
 {
   "theme": "espresso-brass",
-  "showThemePicker": true,
+  "showThemePicker": false,
   "pickerThemes": [
     [
       "espresso-brass",

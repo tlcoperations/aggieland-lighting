@@ -1,0 +1,35 @@
+{#- THANKS — confirmation after the consultation form. Fires the lead conversion via track.js ([data-lead-thanks]).
+    eyebrow, title, text -#}
+<section class="page-hero thanks" data-lead-thanks>
+  <div class="container narrow">
+    {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+    <h1>{{ block.title | mdi | safe }}</h1>
+    {% if block.text %}<div class="lede">{{ block.text | md | safe }}</div>{% endif %}
+  </div>
+</section>
+<section class="section bg-wash">
+  <div class="container narrow">
+    <div class="thanks-grid">
+      <div>
+        <h2>Reach us directly</h2>
+        <p class="thanks-contact">
+          <a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a><br>
+          {%- if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a><br>{% endif %}
+          <a href="{{ site.mapsUrl }}" rel="noopener">{{ site.street }}<br>{{ site.city }}, {{ site.region }} {{ site.zip }}</a>
+        </p>
+      </div>
+      <div>
+        <h2>Showroom hours</h2>
+        <table class="hours">
+          <tbody>
+            {%- for h in site.hours %}
+            <tr><th scope="row">{{ h.days }}</th><td>{{ h.time }}</td></tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+        <p>Walk-ins are welcome.</p>
+      </div>
+    </div>
+    {%- set buttons = block.buttons %}{% include "blocks/_buttons.njk" %}
+  </div>
+</section>

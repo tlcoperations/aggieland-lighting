@@ -306,7 +306,18 @@ p { margin: 0 0 1em; }
 /* book (form) */
 .form { display: grid; gap: 14px; margin-top: 20px; }
 .form label { display: grid; gap: 6px; font-weight: 600; }
-.form input, .form select, .form textarea { font: inherit; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.form input, .form select, .form textarea { font: inherit; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; width: 100%; }
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-note { margin: 0; font-size: .95rem; color: var(--text-soft); }
+.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form .btn { justify-self: start; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form .btn { justify-self: stretch; width: 100%; } }
+
+/* thank-you page */
+.thanks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 8px; }
+.thanks-contact { font-size: 1.1rem; line-height: 1.7; }
+@media (max-width: 700px) { .thanks-grid { grid-template-columns: 1fr; gap: 8px; } }
 
 /* Palette picker (preview only) */
 .theme-picker { position: fixed; right: 12px; bottom: 12px; z-index: 90; display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: 6px 10px; box-shadow: 0 6px 24px rgba(0,0,0,.18); font: 600 12px var(--sans); color: #333; }

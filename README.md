@@ -25,7 +25,8 @@ src/
 | `pages/consultation.md` | `/lighting-consultation/` |
 | `pages/visit.md` | `/visit/` |
 | `pages/about.md` | `/about/` |
-| `pages/shop.md` | `/shop/` (hands off to the LightsAmerica store) |
+| `pages/shop.md` | `/shop/` (catalog hub; category links in `_data/catalog.json`) |
+| `pages/thanks.md` | `/thanks/` (form thank-you, noindex, counts lead conversions) |
 | `pages/blog.md` | `/blog/` |
 | `pages/college-station.md` | `/lighting-store-college-station-tx/` |
 | `pages/bryan.md` | `/lighting-store-bryan-tx/` |
@@ -85,7 +86,9 @@ Every block takes `type`. Most also take `bg` (`plain`, `wash`, `tint`, `hero`, 
 | `prose` | Plain written section | `link`, `wide: true` |
 | `content` | Shows the Markdown written below the page's front matter | — |
 | `visit-info` | Address, hours table and map from `site.json` | — |
-| `book` | Consultation request (form or call buttons) | `id` |
+| `book` | Consultation request (form when `consultFormEndpoint` is set, otherwise call/directions buttons) | `id`, `title`, `text` |
+| `catalog-tiles` | Category boxes from `_data/catalog.json`, each linking into the online store | `columns`, `note` |
+| `thanks` | Form confirmation with phone, address, hours; fires the `generate_lead` conversion | `buttons` |
 | `callout` | Bold colored band with buttons | `buttons` |
 | `areas` | Service area cards from `site.json` (Brazos County highlighted) | `link` |
 
@@ -126,7 +129,8 @@ What gets counted automatically on every page:
 | Taps the phone number | `click_to_call` | `call` conversion | `Contact` |
 | Taps Get Directions | `get_directions` | `directions` conversion | `FindLocation` |
 | Clicks into the online store | `shop_online_click` | `shop` conversion | `ViewContent` |
-| Sends the consultation form | `consult_request` | `consult` conversion | `Lead` |
+| Submits the consultation form | `consult_request` (GA4 only) | none (see next row) | none |
+| Lands on `/thanks/` after the form | `generate_lead` | `consult` conversion | `Lead` |
 
 - Ad source (UTM tags, `gclid`, `fbclid`) is remembered for the visit, sent with each event, and added to the consultation form as hidden fields.
 - Links to the store get `utm_source=aggielandlighting.com` so the store's reports show visits from this site.
@@ -136,13 +140,22 @@ What gets counted automatically on every page:
 
 **Targeting suggestion:** Brazos County (or a radius around the showroom) as the main campaign; Grimes, Madison and Burleson as a separate, smaller campaign so you can see what each costs.
 
+## Consultation form
+
+Set `consultFormEndpoint` in `site.json` to a form backend URL and the "Book it" block on `/lighting-consultation/` shows a form instead of the call/directions buttons. Leave it blank to keep the buttons.
+
+- The form POSTs `name`, `phone`, `email`, `project_type`, `timeline`, `message`, `source_page` and any `utm_*`/`gclid`/`fbclid` from the visit.
+- It asks the backend to redirect to `/thanks/` using both `_next` (FormSubmit.co, Formspree) and `_redirect` (some other backends). `track.js` rewrites these to the current site origin, so Render previews redirect back to the preview, not the live domain.
+- Spam: two hidden honeypot fields (`_honey` for FormSubmit.co, `_gotcha` for Formspree). `track.js` also blocks the submit if either is filled in.
+- FormSubmit.co: endpoint is `https://formsubmit.co/you@yourdomain.com` (the first submission sends an activation email you must confirm). Formspree: `https://formspree.io/f/xxxxxxxx`; set the redirect/thank-you URL in the Formspree form settings if it ignores `_next`.
+- `/thanks/` is `noindex` and not in the sitemap. Count form conversions by that URL in GA4 or Google Ads.
+
 ## Colors (palettes)
 
 Current shortlist (all espresso brown with warm sand backgrounds): `espresso-brass`, `espresso-sage`, `espresso-rose`, `espresso-camel`, `espresso-slate`, plus the original `clay` (terracotta). Earlier options (`showroom`, `maroon`, `sage`, `navy`, `gallery`) are still in the stylesheet.
 
-- **While previewing**, a small palette switcher sits at the bottom-right of every page. You can also add `?theme=sage` to any URL.
+- **The palette is locked** to `theme` and the picker is off (`"showThemePicker": false`). To preview palettes again, set it to `true`: a switcher appears at the bottom-right and `?theme=sage` works on any URL.
 - **To pick one**, set `"theme"` in `src/_data/site.json`. The switcher shows the palettes listed in `pickerThemes`.
-- **Before launch**, set `"showThemePicker": false` to hide the switcher.
 - To tweak a palette, edit its variables at the top of `src/css/style.css`.
 
 ## Photos
@@ -188,8 +201,8 @@ npm run build      # outputs _site/
 
 ## Before launch checklist
 
-- Choose a palette and set `"showThemePicker": false`.
 - Confirm phone and hours in `site.json` match the Google Business Profile.
-- Add a form endpoint (Formspree, Basin, etc.) to `consultFormEndpoint` if you want a web form.
+- Add a form endpoint (FormSubmit.co, Formspree, Basin, etc.) to `consultFormEndpoint` to turn on the consultation form, and submit a test request.
+- Paste real category URLs from the online store into `src/_data/catalog.json` (blank = store home page).
 - Search Console: add the domain and submit `https://aggielandlighting.com/sitemap.xml`.
 - Paste tracking IDs into `site.json` → `tracking`, then check events in GA4 DebugView, Google Tag Assistant and Meta's Test Events.
