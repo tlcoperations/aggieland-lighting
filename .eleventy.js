@@ -67,6 +67,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("absoluteUrl", (path, base) => new URL(path, base).href);
   eleventyConfig.addFilter("jsonString", (s) => JSON.stringify(fill(String(s || ""))));
   eleventyConfig.addFilter("hasBlock", (blocks, type) => (blocks || []).some((b) => b.type === type));
+  eleventyConfig.addFilter("omit", (obj, key) => Object.fromEntries(Object.entries(obj || {}).filter(([k]) => k !== key)));
   eleventyConfig.addFilter("limit", (arr, n) => (n ? (arr || []).slice(0, n) : arr || []));
 
   return {

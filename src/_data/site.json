@@ -1,6 +1,6 @@
 {
   "theme": "espresso-brass",
-  "showThemePicker": true,
+  "showThemePicker": false,
   "pickerThemes": [
     [
       "espresso-brass",
@@ -45,7 +45,7 @@
   "shopUrl": "https://shop.aggielandlighting.com",
   "phone": "979-220-7960",
   "phoneE164": "+19792207960",
-  "email": "",
+  "email": "operations@aggielandlighting.com",
   "street": "12850 Old Wellborn Rd, Suite 400",
   "city": "College Station",
   "region": "TX",
@@ -53,7 +53,7 @@
   "mapsUrl": "https://maps.google.com/?q=12850+Old+Wellborn+Rd+Suite+400+College+Station+TX+77845",
   "hoursText": "Monday–Friday, 9:00 to 5:00. Closed Saturday and Sunday.",
   "hoursShort": "Mon–Fri 9–5",
-  "consultFormEndpoint": "",
+  "consultFormEndpoint": "https://formsubmit.co/operations@aggielandlighting.com",
   "googleProfileUrl": "",
   "facebookUrl": "https://www.facebook.com/p/Aggieland-Lighting-Design-61554382526015/",
   "brands": [
@@ -130,12 +130,12 @@
   "tracking": {
     "_help": "Paste IDs here to turn tracking on. Leave blank to keep it off. See README > Ads & tracking.",
     "ga4Id": "G-0WN1X0Y5EP",
-    "googleAdsId": "",
+    "googleAdsId": "AW-16677215882",
     "googleAdsConversions": {
       "call": "",
       "directions": "",
       "shop": "",
-      "consult": ""
+      "consult": "uciNCPXSjL4dEIq9qJA-"
     },
     "metaPixelId": "",
     "googleSiteVerification": "",
