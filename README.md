@@ -25,7 +25,7 @@ src/
 | `pages/consultation.md` | `/lighting-consultation/` |
 | `pages/visit.md` | `/visit/` |
 | `pages/about.md` | `/about/` |
-| `pages/shop.md` | `/shop/` (catalog hub; category links in `_data/catalog.json`) |
+| `pages/shop.md` | `/shop/` (landing page that sends visitors into the LightsAmerica catalog) |
 | `pages/thanks.md` | `/thanks/` (form thank-you, noindex, counts lead conversions) |
 | `pages/blog.md` | `/blog/` |
 | `pages/college-station.md` | `/lighting-store-college-station-tx/` |
@@ -87,7 +87,6 @@ Every block takes `type`. Most also take `bg` (`plain`, `wash`, `tint`, `hero`, 
 | `content` | Shows the Markdown written below the page's front matter | — |
 | `visit-info` | Address, hours table and map from `site.json` | — |
 | `book` | Consultation request (form when `consultFormEndpoint` is set, otherwise call/directions buttons) | `id`, `title`, `text` |
-| `catalog-tiles` | Category boxes from `_data/catalog.json`, each linking into the online store | `columns`, `note` |
 | `thanks` | Form confirmation with phone, address, hours; fires the `generate_lead` conversion | `buttons` |
 | `callout` | Bold colored band with buttons | `buttons` |
 | `areas` | Service area cards from `site.json` (Brazos County highlighted) | `link` |
@@ -203,6 +202,5 @@ npm run build      # outputs _site/
 
 - Confirm phone and hours in `site.json` match the Google Business Profile.
 - Add a form endpoint (FormSubmit.co, Formspree, Basin, etc.) to `consultFormEndpoint` to turn on the consultation form, and submit a test request.
-- Paste real category URLs from the online store into `src/_data/catalog.json` (blank = store home page).
 - Search Console: add the domain and submit `https://aggielandlighting.com/sitemap.xml`.
 - Paste tracking IDs into `site.json` → `tracking`, then check events in GA4 DebugView, Google Tag Assistant and Meta's Test Events.
