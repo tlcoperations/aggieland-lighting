@@ -5,6 +5,7 @@ title: "Thank You | Aggieland Lighting and Design"
 description: "Thanks for contacting Aggieland Lighting and Design."
 robots: "noindex, nofollow"
 eleventyExcludeFromCollections: true
+leadPage: true
 
 # Form conversion page: count visits to /thanks/ as consultation requests.
 # Hidden from Google (noindex) and left out of the sitemap.

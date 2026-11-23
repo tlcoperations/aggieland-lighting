@@ -130,12 +130,12 @@
   "tracking": {
     "_help": "Paste IDs here to turn tracking on. Leave blank to keep it off. See README > Ads & tracking.",
     "ga4Id": "G-0WN1X0Y5EP",
-    "googleAdsId": "",
+    "googleAdsId": "AW-16677215882",
     "googleAdsConversions": {
       "call": "",
       "directions": "",
       "shop": "",
-      "consult": ""
+      "consult": "uciNCPXSjL4dEIq9qJA-"
     },
     "metaPixelId": "",
     "googleSiteVerification": "",

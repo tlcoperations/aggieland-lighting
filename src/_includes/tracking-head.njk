@@ -6,7 +6,8 @@
   window.AGL_TRACK = {
     ga4: "{{ tr.ga4Id }}",
     ads: "{{ tr.googleAdsId }}",
-    conversions: {{ tr.googleAdsConversions | dump | safe }},
+    {#- The consult (form lead) conversion label is only handed to the page on /thanks/ (leadPage: true in front matter). -#}
+    conversions: {{ (tr.googleAdsConversions if leadPage else (tr.googleAdsConversions | omit("consult"))) | dump | safe }},
     pixel: "{{ tr.metaPixelId }}",
     shopHost: "{{ site.shopUrl | replace('https://', '') | replace('http://', '') }}"
   };
