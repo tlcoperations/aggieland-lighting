@@ -1,0 +1,105 @@
+---
+layout: layouts/base.njk
+permalink: /preview/
+title: "Place it in your space | Fixture Preview | Aggieland Lighting"
+navTitle: Place it in your space
+description: "See a light fixture at true scale in a photo of your own room."
+robots: "noindex, nofollow"
+eleventyExcludeFromCollections: true
+consultUrl: /lighting-consultation/
+---
+<link rel="stylesheet" href="/css/preview.css">
+
+<section class="pv">
+  <div class="container">
+    <header class="pv-head">
+      <p class="eyebrow">Preview tool</p>
+      <h1>Place it in your space.</h1>
+      <p class="pv-lede">Pick a fixture, add a photo of your room, and mark something of a known size. We'll show the fixture at true scale. Your photo stays in your browser and is never uploaded.</p>
+      <noscript><p class="pv-warn">This tool needs JavaScript. Call us at <a href="tel:{{ site.phoneE164 }}">{{ site.phone }}</a> and we'll help in person.</p></noscript>
+    </header>
+
+    <div class="pv-grid" id="pv-app" data-consult-url="{{ consultUrl }}">
+
+      <section class="pv-step pv-step-1" aria-labelledby="pv-h1">
+        <h2 id="pv-h1"><span class="pv-num" aria-hidden="true">1</span> Pick a fixture</h2>
+        <label class="pv-field" for="pv-fixture">Fixture
+          <select id="pv-fixture">
+            {%- for f in fixtures %}
+            <option value="{{ f.id }}">{{ f.name }}{% if f.sample %} (sample){% endif %}</option>
+            {%- endfor %}
+          </select>
+        </label>
+        <div class="pv-card" id="pv-card" aria-live="polite"></div>
+      </section>
+
+      <section class="pv-step pv-step-2" aria-labelledby="pv-h2">
+        <h2 id="pv-h2"><span class="pv-num" aria-hidden="true">2</span> Add a photo of your room</h2>
+        <label class="pv-field" for="pv-photo">Room photo
+          <input id="pv-photo" type="file" accept="image/*">
+        </label>
+        <p class="pv-hint">Take the photo straight on, with the door or window you'll measure in view and not at a steep angle. Scale is approximate.</p>
+      </section>
+
+      <div class="pv-stage" id="pv-stage">
+        <div class="pv-empty" id="pv-empty">
+          <p><strong>Your room photo will appear here.</strong></p>
+          <p>Choose a photo in step 2 to begin.</p>
+        </div>
+        <canvas id="pv-canvas" tabindex="0" hidden
+          aria-label="Room photo with the fixture placed on it. Drag the fixture to move it. Arrow keys nudge it by one inch, hold Shift for five inches."></canvas>
+        <p class="pv-status" id="pv-status" role="status" aria-live="polite"></p>
+        <p class="pv-note">Scale is approximate; take the photo straight on.</p>
+      </div>
+
+      <section class="pv-step pv-step-3" id="pv-step3" aria-labelledby="pv-h3" hidden>
+        <h2 id="pv-h3"><span class="pv-num" aria-hidden="true">3</span> Mark something of known size</h2>
+        <fieldset class="pv-radios">
+          <legend>What are you measuring?</legend>
+          <label><input type="radio" name="pv-ref" value="door" checked> Door height <span class="pv-sub">(80 in is standard)</span></label>
+          <label><input type="radio" name="pv-ref" value="window"> Window width</label>
+          <label><input type="radio" name="pv-ref" value="custom"> Something else</label>
+        </fieldset>
+        <label class="pv-field" for="pv-inches"><span id="pv-inches-label">Door height in inches</span>
+          <input id="pv-inches" type="number" inputmode="decimal" min="1" max="600" step="0.25" value="80">
+        </label>
+        <div class="pv-row">
+          <button type="button" class="btn btn-accent btn-sm" id="pv-mark">Mark on photo</button>
+          <span class="pv-hint" id="pv-mark-hint"></span>
+        </div>
+        <p class="pv-hint" id="pv-scale-readout"></p>
+      </section>
+
+      <section class="pv-step pv-step-4" id="pv-step4" aria-labelledby="pv-h4" hidden>
+        <h2 id="pv-h4"><span class="pv-num" aria-hidden="true">4</span> Position the fixture</h2>
+        <p class="pv-hint">Drag the fixture on the photo. On a touch screen, twist two fingers to rotate.</p>
+        <div class="pv-nudge" role="group" aria-label="Nudge fixture by one inch">
+          <button type="button" class="pv-btn" id="pv-up" aria-label="Move up 1 inch">&uarr;</button>
+          <button type="button" class="pv-btn" id="pv-left" aria-label="Move left 1 inch">&larr;</button>
+          <button type="button" class="pv-btn" id="pv-down" aria-label="Move down 1 inch">&darr;</button>
+          <button type="button" class="pv-btn" id="pv-right" aria-label="Move right 1 inch">&rarr;</button>
+        </div>
+        <label class="pv-field" for="pv-rotate"><span>Tilt: <output id="pv-rotate-out" for="pv-rotate">0&deg;</output></span>
+          <input id="pv-rotate" type="range" min="-20" max="20" step="1" value="0">
+        </label>
+        <div class="pv-row">
+          <button type="button" class="btn btn-outline btn-sm" id="pv-flip" aria-pressed="false">Flip left/right</button>
+          <button type="button" class="btn btn-outline btn-sm" id="pv-center">Reset position</button>
+        </div>
+        <p class="pv-dims" id="pv-dims" aria-live="polite"></p>
+      </section>
+
+      <section class="pv-step pv-step-5" id="pv-step5" aria-labelledby="pv-h5" hidden>
+        <h2 id="pv-h5"><span class="pv-num" aria-hidden="true">5</span> Save or send</h2>
+        <div class="pv-row">
+          <button type="button" class="btn btn-primary" id="pv-download">Download image</button>
+          <a class="btn btn-accent" id="pv-send" href="{{ consultUrl }}">Send to Aggieland</a>
+        </div>
+        <p class="pv-hint">"Send to Aggieland" opens our consultation page with this fixture filled in. Nothing is sent automatically, and your photo is not attached. Download the image if you'd like to show us.</p>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="pv-data">{{ fixturesJson | safe }}</script>
+<script src="/js/preview.js" defer></script>
