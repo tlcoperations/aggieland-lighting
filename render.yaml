@@ -1,11 +1,13 @@
 # Render Blueprint: static site built with Eleventy
+previews:
+  generation: automatic
+
 services:
   - type: web
     runtime: static
     name: aggieland-lighting
     buildCommand: npm install && npm run build
     staticPublishPath: _site
-    pullRequestPreviewsEnabled: false
     headers:
       - path: /*
         name: X-Content-Type-Options
