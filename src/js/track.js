@@ -68,6 +68,16 @@
     ["_next", "_redirect"].forEach(function (n) {
       var f = form.elements[n]; if (f) f.value = thanks;
     });
+    // Fixture links (/lighting-consultation/?product=...&product_id=...&source=...#book): prefill and pass along.
+    var pf = form.elements.product;
+    if (pf && params.get("product")) {
+      pf.value = params.get("product").slice(0, 200);
+      pf.disabled = false; pf.closest("label").hidden = false;
+      ["product_id", "source"].forEach(function (n) {
+        var f = form.elements[n], v = params.get(n);
+        if (f && v) { f.value = v.slice(0, 200); f.disabled = false; }
+      });
+    }
     if (form.elements.source_page) form.elements.source_page.value = location.pathname;
     form.addEventListener("submit", function (e) {
       var tripped = ["_honey", "_gotcha"].some(function (n) { return form.elements[n] && form.elements[n].value; });

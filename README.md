@@ -144,6 +144,7 @@ What gets counted automatically on every page:
 Set `consultFormEndpoint` in `site.json` to a form backend URL and the "Book it" block on `/lighting-consultation/` shows a form instead of the call/directions buttons. Leave it blank to keep the buttons.
 
 - The form POSTs `name`, `phone`, `email`, `project_type`, `timeline`, `message`, `source_page` and any `utm_*`/`gclid`/`fbclid` from the visit.
+- Fixture links (`/lighting-consultation/?product=NAME&product_id=ID&source=fixture-preview#book`) reveal a "Fixture you're interested in" field prefilled with `product`, and send `product_id` and `source` as hidden fields. Without those parameters the form is unchanged.
 - It asks the backend to redirect to `/thanks/` using both `_next` (FormSubmit.co, Formspree) and `_redirect` (some other backends). `track.js` rewrites these to the current site origin, so Render previews redirect back to the preview, not the live domain.
 - Spam: two hidden honeypot fields (`_honey` for FormSubmit.co, `_gotcha` for Formspree). `track.js` also blocks the submit if either is filled in.
 - FormSubmit.co: endpoint is `https://formsubmit.co/you@yourdomain.com` (the first submission sends an activation email you must confirm). Formspree: `https://formspree.io/f/xxxxxxxx`; set the redirect/thank-you URL in the Formspree form settings if it ignores `_next`.
