@@ -1,0 +1,40 @@
+[
+  {
+    "id": "sample-chandelier",
+    "sample": true,
+    "name": "Sample Chandelier",
+    "brand": "SAMPLE (not a real product)",
+    "catalogUrl": "",
+    "cutout": "/images/preview/sample-chandelier.png",
+    "widthIn": 28,
+    "heightIn": 30,
+    "minHangHeightIn": 84,
+    "overallLengthIn": 60,
+    "notes": "Placeholder drawing used to test the preview tool. Overall length includes 30 in of chain."
+  },
+  {
+    "id": "sample-pendant",
+    "sample": true,
+    "name": "Sample Dome Pendant",
+    "brand": "SAMPLE (not a real product)",
+    "catalogUrl": "",
+    "cutout": "/images/preview/sample-pendant.png",
+    "widthIn": 12,
+    "heightIn": 16,
+    "minHangHeightIn": 30,
+    "overallLengthIn": 52,
+    "notes": "Placeholder drawing. Overall length includes a 36 in cord."
+  },
+  {
+    "id": "sample-linear-pendant",
+    "sample": true,
+    "name": "Sample Linear Island Pendant",
+    "brand": "SAMPLE (not a real product)",
+    "catalogUrl": "",
+    "cutout": "/images/preview/sample-linear-pendant.png",
+    "widthIn": 48,
+    "heightIn": 8,
+    "minHangHeightIn": 30,
+    "notes": "Placeholder drawing. Rods shown are only the first few inches; chain or rod length is set at install."
+  }
+]

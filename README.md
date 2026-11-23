@@ -32,6 +32,7 @@ src/
 | `pages/areas.md` | `/areas-we-serve/` (Brazos first, then Grimes, Madison, Burleson) |
 | `pages/privacy.md` | `/privacy/` (needed for Google and Meta ads) |
 | `lp/showroom.md` | `/lp/showroom/` — ad landing page, hidden from Google |
+| `pages/preview.njk` | `/preview/` — fixture preview tool, hidden from Google (see [Fixture preview](#fixture-preview-place-it-in-your-space)) |
 
 ## Add a page
 
@@ -150,6 +151,69 @@ Current shortlist (all espresso brown with warm sand backgrounds): `espresso-bra
 Photos live in `src/_data/photos.json` as `key → { url, file, alt }`. Every build downloads them into `src/images/remote/` and the site serves its own copies. Use a key anywhere a block asks for `image`. For your own photo, put the file in `src/images/` and use its path instead, e.g. `image: /images/showroom-floor.jpg`.
 
 The current photos are manufacturer room shots from the store. Real showroom and local project photos will help the look and local search.
+
+## Fixture preview ("Place it in your space")
+
+`/preview/` lets a customer see a fixture at true scale in a photo of their own room. It is hidden from Google (`noindex`, not in the sitemap) and not in the menu yet. Everything runs in the visitor's browser: no backend, no upload, no paid service, no libraries (plain canvas).
+
+**How a visitor uses it:** pick a fixture → add a room photo (stays on their device) → click two points on something of known length (door height, default 80 in; window width; or any length they type) → the fixture drops in at true scale → drag, nudge, tilt, flip → download the image, or "Send to Aggieland".
+
+**How scale is computed:** `pixels per inch = distance between the two clicked points (in photo pixels) / known inches`. The cutout is then drawn `widthIn x pixelsPerInch` wide and `heightIn x pixelsPerInch` tall. It is a flat 2D picture, so it is only right for things at the same depth as the marked door or window, and tilted photos are off. The page says so ("Scale is approximate; take the photo straight on").
+
+**Links into it:**
+
+- Deep link: `/preview/?fixture=<id>` opens with that fixture selected (use this from shop pages).
+- "Send to Aggieland" opens `/lighting-consultation/?product=<name>&product_id=<id>&source=fixture-preview#book`. It sends nothing by itself. A consult form can read those three query values to prefill itself.
+
+| File | What it is |
+|---|---|
+| `src/pages/preview.njk` | the page (markup only) |
+| `src/pages/preview.11tydata.js` | checks `previewFixtures.json` at build time and stops the build with a plain message if an entry is wrong |
+| `src/js/preview.js`, `src/css/preview.css` | all the behavior and styling |
+| `src/_data/previewFixtures.json` | the fixture list |
+| `src/images/preview/` | the transparent cutout PNGs |
+| `scripts/preview/make_cutout.py` | optional, run by hand: background removal with free `rembg` |
+| `scripts/preview/make_sample_cutouts.py` | redraws the three SAMPLE placeholder PNGs |
+
+### Add a real product (about 5 minutes)
+
+1. **Get the photo and the numbers** from the product listing: one clear front-on picture of the whole fixture, plus its **width** and **height** in inches. (Use the height of the fixture *as pictured*. Chain, rod or cord length goes in `overallLengthIn`/`notes`.) Check that you're allowed to use the manufacturer's image.
+2. **Make the cutout.** Either:
+   - run the helper (on your computer, not on Render):
+
+     ```bash
+     python3 -m venv .venv-preview && source .venv-preview/bin/activate   # once
+     pip install -r scripts/preview/requirements.txt                       # once
+     python3 scripts/preview/make_cutout.py ~/Downloads/photo.jpg \
+       --id acme-aria-chandelier --width-in 28 --height-in 30 \
+       --name "Aria Chandelier" --brand "Acme"
+     ```
+
+     It removes the background, crops tightly, saves `src/images/preview/acme-aria-chandelier.png`, and prints the JSON entry; or
+   - cut it out by hand in any editor and save a **transparent PNG cropped tightly** to the fixture (no empty margin) as `src/images/preview/<id>.png`.
+3. **Check the PNG by eye.** Open it over a dark and a light background. Glass and crystal usually need touch-ups.
+4. **Add an entry** to `src/_data/previewFixtures.json`:
+
+   ```json
+   {
+     "id": "acme-aria-chandelier",
+     "name": "Aria Chandelier",
+     "brand": "Acme",
+     "catalogUrl": "https://shop.aggielandlighting.com/...",
+     "cutout": "/images/preview/acme-aria-chandelier.png",
+     "widthIn": 28,
+     "heightIn": 30,
+     "minHangHeightIn": 84,
+     "overallLengthIn": 60,
+     "notes": "Optional. Chain or rod details, bulb count, anything useful."
+   }
+   ```
+
+   `id`, `name`, `cutout`, `widthIn`, `heightIn` are required. The rest are optional (`catalogUrl` and `brand` can be `""`). `minHangHeightIn` is the lowest the bottom of the fixture should be above the floor; the page compares it to the photo when the customer marks a door. `"sample": true` adds an orange SAMPLE badge (only the placeholders use it). Remove the three `sample-*` entries and PNGs when real products go in.
+5. **Build and look:** `npm run build` (it fails with a clear message for a missing file, duplicate id or bad number, and warns if the PNG's shape doesn't match the width and height), then `npm start` and open `/preview/?fixture=acme-aria-chandelier`.
+6. **Open a PR, check the Render preview, then merge.** Link to it from the shop with `/preview/?fixture=acme-aria-chandelier`.
+
+If you replace a cutout, give the new file a new name (for example `-v2.png`). Render caches `/images/*` for 30 days.
 
 ## Write a blog post
 
